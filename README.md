@@ -76,13 +76,10 @@ import Obj2 from './Obj2' ;
     from:[Obj1,Obj2]
 })
 @WatchDecorator("ready")//用于监听当前的对象，符合什么样的状态
-export default class Ready  extends AnyObject {
-	//返回的结果，或者当前节点的结果，交由后端的节点使用
-    public data() {
-        return "ready ..."
-    }
+export default class extends AnyObject {
+
     //当前节点的功能
-    public exec() {
+    public run() {
         console.log(this.getClassName()+" exec ...",this.fromData());
     }
 
