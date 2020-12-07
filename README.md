@@ -62,7 +62,8 @@ import objs from './objects/Index';//继承了AnyObject的对象数组
 let ctx = new Context(objs);
 //加载对象成功
 ctx.ready(()=>{
-  ctx.state("ready");//从节点种，找出符合状态的链路
+  ctx.describe("ready");//描述一个事务，传入特征名（从图中定位一条执行路径），并执行
+  // ctx.search("ready");//查询
 });
 //监听得到最终执行结果
 ctx.onExec((r)=>{
@@ -82,7 +83,7 @@ import Obj2 from './Obj2' ;
     type:CONST.GLOBAL_TYPE.COLLECT,
     from:[Obj1,Obj2]
 })
-@MarkDecorator("ready")//用于监听当前的对象，符合什么样的状态
+@MarkDecorator("ready")//一个对象的标注，特征
 export default class Ready  extends AnyObject {
     //当前节点的功能
     public run() {
